@@ -1,0 +1,14 @@
+services:
+  divination-mcp:
+    build: .
+    ports:
+      - "8787:8787"
+    environment:
+      - PORT=8787
+      - MCP_STORAGE=/app/data/usage.json
+    volumes:
+      - mcp-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  mcp-data:
